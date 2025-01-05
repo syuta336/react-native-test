@@ -13,7 +13,7 @@ const List = (): JSX.Element => {
         <MemoListItem />
         <MemoListItem />
       </View>
-      <CircleButton style={{ top: 160, bottom: "auto" }}>
+      <CircleButton>
         <Icon name="plus1" size={40} color="#ffffff" />
       </CircleButton>
     </View>
