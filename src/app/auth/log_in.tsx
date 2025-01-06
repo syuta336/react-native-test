@@ -5,22 +5,50 @@ import {
   TouchableOpacity,
   StyleSheet,
   Alert,
+  NativeSyntheticEvent,
+  TextInputChangeEventData,
 } from "react-native";
 
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
+import { useState } from "react";
 
-import Header from "../../components/Header";
 import Button from "../../components/Button";
 
+const handlePress = (): void => {
+  // 会員登録
+  router.replace("/memo/list");
+};
+
 const LogIn = (): JSX.Element => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <View style={styles.container}>
-      <Header />
       <View style={styles.inner}>
         <Text style={styles.title}>Log In</Text>
-        <TextInput style={styles.input} value="Email address" />
-        <TextInput style={styles.input} value="Password" />
-        <Button label="Submit" onPress={() => Alert.alert("Pressed!")} />
+        <TextInput
+          style={styles.input}
+          value={email}
+          onChange={(event: NativeSyntheticEvent<TextInputChangeEventData>) => {
+            setEmail(event.nativeEvent.text);
+          }}
+          autoCapitalize="none"
+          keyboardType="email-address"
+          placeholder="Email Address"
+          textContentType="emailAddress"
+        />
+        <TextInput
+          style={styles.input}
+          value={password}
+          onChange={(event: NativeSyntheticEvent<TextInputChangeEventData>) => {
+            setPassword(event.nativeEvent.text);
+          }}
+          autoCapitalize="none"
+          secureTextEntry
+          placeholder="Password"
+          textContentType="password"
+        />
+        <Button label="Submit" onPress={handlePress} />
         <View style={styles.footer}>
           <Text style={styles.footerText}>Not registered ?</Text>
           <Link href="/auth/sign_up" asChild>
