@@ -15,7 +15,6 @@ import { useState } from "react";
 import Button from "../../components/Button";
 
 const handlePress = (): void => {
-  // 会員登録
   router.replace("/memo/list");
 };
 
