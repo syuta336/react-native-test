@@ -21,12 +21,10 @@ const handlePress = (email: string, password: string): void => {
   // ログイン
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      console.log(userCredential.user.uid);
       router.replace("/memo/list");
     })
     .catch((error) => {
       const { code, message } = error;
-      console.log(code, message);
       Alert.alert(message);
     });
 };
