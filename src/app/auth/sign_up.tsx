@@ -21,7 +21,6 @@ const handlePress = (email: string, password: string): void => {
   console.log(email, password);
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      console.log(userCredential.user.uid);
       router.replace("/memo/list");
     })
     .catch((error): void => {

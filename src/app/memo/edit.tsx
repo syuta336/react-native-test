@@ -41,7 +41,7 @@ const Edit = (): JSX.Element => {
         console.log(error);
       });
   }, []);
-  console.log(id);
+
   return (
     <KeyboardAvoidingView behavior="height" style={styles.container}>
       <View style={styles.inputcontainer}>

@@ -15,7 +15,6 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 
 import Button from "../../components/Button";
 import { auth } from "../../config";
-import { useFilterScreenChildren } from "expo-router/build/layouts/withLayoutContext";
 
 const handlePress = (email: string, password: string): void => {
   // ログイン
