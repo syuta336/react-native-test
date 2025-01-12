@@ -2,14 +2,26 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { Link } from "expo-router";
 
 import Icon from "./Icon";
+import { type Memo } from "../../types/memo";
 
-const MemoListItem = (): JSX.Element => {
+interface Props {
+  memo: Memo;
+}
+
+const MemoListItem = ({ memo }: Props): JSX.Element | null => {
+  const { id, bodyText, updatedAt } = memo;
+  if (bodyText === null || updatedAt === null) {
+    return null;
+  }
+  const dateString = updatedAt.toDate().toLocaleString("ja-JP");
   return (
-    <Link href="memo/detail/" asChild>
+    <Link href={{ pathname: "/memo/detail/", params: { id: id } }} asChild>
       <TouchableOpacity style={styles.memoListItem}>
         <View>
-          <Text style={styles.memoListItemTitle}>買い物リスト</Text>
-          <Text style={styles.memoListItemDate}>2025年1月4日 14:15</Text>
+          <Text numberOfLines={1} style={styles.memoListItemTitle}>
+            {bodyText}
+          </Text>
+          <Text style={styles.memoListItemDate}>{dateString}</Text>
         </View>
         <TouchableOpacity>
           <Icon name="delete1" size={32} color="#B0B0B0" />

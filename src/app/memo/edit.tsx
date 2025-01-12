@@ -16,7 +16,7 @@ const Edit = (): JSX.Element => {
   return (
     <KeyboardAvoidingView behavior="height" style={styles.container}>
       <View style={styles.inputcontainer}>
-        <TextInput multiline style={styles.input} value={"買い物\nリスト"} />
+        <TextInput multiline style={styles.input} value={"買い\nリスト"} />
       </View>
       <CircleButton onPress={handlePress}>
         <Icon name="check1" size={40} color="#ffffff" />

@@ -14,6 +14,7 @@ interface Props {
 
 const CircleButton = (props: Props): JSX.Element => {
   const { children, style, onPress } = props;
+
   return (
     <TouchableOpacity onPress={onPress} style={[styles.circleButton, style]}>
       <Text style={styles.circleButtonLabel}>{children}</Text>
